@@ -1,0 +1,25 @@
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Dev-Stage') {
+            steps {
+                echo 'Hello Developer'
+                build quietPeriod: 2, job: 'Job1'
+            }
+        }
+        stage('QA-Stage') {
+            steps {
+                echo 'Hello Tester'
+                build quietPeriod: 2, job: 'Job2'
+            }
+        }
+        stage('Prod-Stage') {
+            steps {
+                echo 'Hello Production'
+                build quietPeriod: 2, job: 'Job3'
+            }
+        }
+    }
+}
